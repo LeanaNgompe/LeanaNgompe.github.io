@@ -3,181 +3,63 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jenny Leana Fotso Ngompe</title>
+  <title>Jenny Leana Fotso Ngompe | Social computing researcher</title>
+  <meta name="description" content="Researcher studying how social platforms and generative AI amplify existing power asymmetries.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #ffffff;
-      color: #333;
-      scroll-behavior: smooth;
+    body { font-family: 'Poppins', sans-serif; background: #fff; color: #333; scroll-behavior: smooth; }
+    a:focus-visible, button:focus-visible { outline: 3px solid #333; outline-offset: 2px; }
+
+    .navbar { background: #fff; border-bottom: 1px solid #ddd; position: sticky; top: 0; z-index: 1000; }
+    .navbar a.nav-link { color: #333 !important; font-weight: 500; }
+    .navbar a.nav-link:hover { box-shadow: inset 0 -3px 0 #FFDDCC; }
+
+    header.hero-section { display: flex; align-items: center; justify-content: center; min-height: 90vh; }
+    .hero-text { flex: 1; padding: 2rem; }
+    .hero-image { flex: 1; text-align: center; }
+    .hero-image img { max-width: 70%; box-shadow: 0 4px 20px rgba(0,0,0,.1); }
+    .typing-text { font-size: 1.2rem; min-height: 3.6rem; }
+    #cursor { display: inline-block; animation: blink 1s step-start infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (prefers-reduced-motion: reduce) { #cursor { animation: none; } html { scroll-behavior: auto; } }
+    @media (max-width: 768px) {
+      header.hero-section { flex-direction: column-reverse; min-height: auto; padding: 2rem 0; }
+      .hero-image img { max-width: 60%; }
     }
 
-    /* Sticky navbar */
-    .navbar {
-      background-color: #fff;
-      border-bottom: 1px solid #ddd;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
-    .navbar a.nav-link {
-      color: #333 !important;
-      font-weight: 500;
-    }
-    .navbar a.nav-link:hover {
-      color: #FFDDCC !important;
-    }
+    section { padding: 4rem 1rem; }
+    .section-title { font-weight: 700; font-size: 2rem; text-align: center; margin-bottom: 2.5rem; }
 
-    /* Hero section */
-    header.hero-section {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: row;
-      height: 100vh;
-    }
-    .hero-text {
-      flex: 1;
-      padding: 2rem;
-      text-align: left;
-    }
-    .hero-image {
-      flex: 1;
-      text-align: center;
-    }
-    .hero-image img {
-      max-width: 70%;
-      /*border-radius: 50%;*/
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-    }
-    .typing-text {
-      font-size: 1.2rem;
-      white-space: pre-wrap;
-      overflow-wrap: break-word;
-    }
-    #cursor {
-      display: inline-block;
-      animation: blink 1s step-start infinite;
-    }
-    @keyframes blink {
-      50% { opacity: 0; }
-    }
+    .experience-card, .education-card, .skills-card { border: 1px solid #e0e0e0; border-radius: 12px; background: #fafafa; box-shadow: 0 4px 12px rgba(0,0,0,.05); }
+    .experience-card { padding: 1.5rem; height: 100%; }
+    .experience-card ul { padding-left: 1.2rem; margin: 0; }
+    .education-card { padding: 2rem; }
+    .skills-card { padding: 1.5rem; background: #fff; }
+    .tag { display: inline-block; background: #FFDDCC; color: #333; padding: .2rem .7rem; border-radius: 20px; font-size: .8rem; font-weight: 500; margin: 0 .3rem .5rem 0; }
+    .skill-tags span { display: inline-block; background: #f3f3f3; padding: .4rem .9rem; border-radius: 20px; font-size: .9rem; font-weight: 500; margin: .25rem; }
+    .meta { color: #555; font-size: .9rem; }
 
-    /* Sections */
-    section {
-      min-height: 100vh;
-      padding: 5rem 1rem;
-      display: block; /* important: allow proper vertical stacking */
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-weight: 700;
-      font-size: 2rem;
-      text-align: center;
-      width: 100%;
-      margin-bottom: 3rem;
-    }
-
-    /* Experience & Projects Cards */
-    .experience-card {
-      border: 1px solid #e0e0e0;
-      border-radius: 12px;
-      background-color: #fafafa;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-    }
-    .experience-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    }
-    .experience-card ul {
-      padding-left: 1.2rem;
-      margin: 0;
-    }
-
-    /* Projects Buttons */
-    #projects .btn-outline-dark {
-      border-color: #ccc;
-      color: #333;
-      font-weight: 500;
-    }
-    #projects .btn-outline-dark:hover {
-      background-color: #f5f5f5;
-    }
-
-    /* Education cards */
-    .education-card {
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      padding: 2rem;
-      margin: 1rem 0;
-      background-color: #f9f9f9;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-    }
-    /* Skills Section */
-    .skills-card {
-    background-color: #fff;
-    border: 1px solid #eee;
-    border-radius: 12px;
-    transition: all 0.3s ease;
-    }
-    .skills-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
-    }
-
-    .skill-tags {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.6rem;
-    margin-top: 1rem;
-    }
-
-    .skill-tags span {
-    background-color: #f3f3f3;
-    color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    }
-
-    .skill-tags span:hover {
-    background-color: #FFDDCC;
-    transform: scale(1.05);
-    }
-
-
-    /* Footer */
-    footer {
-      background-color: #f8f8f8;
-      text-align: center;
-      padding: 1.5rem;
-      border-top: 1px solid #ddd;
-    }
+    footer { background: #f8f8f8; text-align: center; padding: 1.5rem; border-top: 1px solid #ddd; }
   </style>
 </head>
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light">
+<nav class="navbar navbar-expand-lg navbar-light" aria-label="Main">
   <div class="container-fluid px-5">
     <a class="navbar-brand fw-bold" href="#home">Jenny Leana Fotso Ngompe</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ms-auto">
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
         <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
         <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
-        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
       </ul>
@@ -185,354 +67,231 @@
   </div>
 </nav>
 
-<!-- Hero Section -->
 <header id="home" class="hero-section">
   <div class="hero-text">
     <h1 class="fw-bold">Jenny Leana Fotso Ngompe</h1>
-    <p class="typing-text" id="typing-text"><span id="typed-text"></span><span id="cursor">|</span></p>
+    <!-- REWRITE IN YOUR OWN WORDS: keep it to one line and match your CV's research interests line -->
+    <p class="typing-text" id="typing-text" aria-label="Social computing, algorithmic auditing, technology-facilitated harm, feminist HCI"><span id="typed-text"></span><span id="cursor" aria-hidden="true">|</span></p>
     <div class="mt-3">
-      <a href="https://github.com/LeanaNgompe" target="_blank" class="btn btn-dark me-2">GitHub</a>
-      <a href="https://www.linkedin.com/in/jennyleanafotsongompe/" target="_blank" class="btn btn-outline-dark">LinkedIn</a>
+      <a href="assets/FotsoNgompe_CV.pdf" class="btn btn-dark me-2">CV</a>
+      <a href="https://github.com/LeanaNgompe" target="_blank" rel="noopener" class="btn btn-outline-dark me-2">GitHub</a>
+      <a href="https://www.linkedin.com/in/jennyleanafotsongompe/" target="_blank" rel="noopener" class="btn btn-outline-dark">LinkedIn</a>
     </div>
   </div>
   <div class="hero-image">
-    <img src="assets/headshot.jpg" alt="Jenny Leana Fotso Ngompe Headshot">
+    <img src="assets/headshot.jpg" alt="Headshot of Jenny Leana Fotso Ngompe">
   </div>
 </header>
 
-<!-- About Section -->
 <section id="about" class="container">
-  <div>
-    <h2 class="section-title">About Me</h2>
-    <p class="text-center mx-auto" style="max-width: 800px;">
-      I am a dual-degree student pursuing a Master of Science in Computer Science at Columbia University and a Bachelor of Arts in Computer Science and Women's Gender and Sexuality Studies at Barnard College. My interests lie at the intersection of AI, ethics, and inclusive technology. I’m passionate about designing tools that make technology more equitable and accessible for all users.
-    </p>
-  </div>
-</section>
-
-<!-- Experience Section -->
-<section id="experience" class="container my-5">
-  <div class="row">
-    <div class="col-12">
-      <h2 class="section-title">Experience</h2>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-     <!-- Barnard College -->
-    <div class="col-md-4 mb-4">
-      <div class="experience-card d-flex flex-column align-items-center p-3 h-100">
-        <div class="experience-img mb-3">
-          <img src="assets/barnard.jpeg" alt="Teaching Assistant" class="img-fluid rounded" style="max-width: 100px;">
-        </div>
-        <div class="experience-text">
-          <h5><strong>Barnard College</strong></h5>
-          <p><em>Usable Privacy and Security Teaching Assistant</em><br>August 2025 - Present</p>
-          <ul class="text-start">
-            <li>Supported instruction for a research-based course focused on ethical and inclusive technology design</li>
-            <li>Designed weekly reading assessments that encouraged conceptual understanding rather than surface-level AI-generated summaries</li>
-            <li>Evaluated student reasoning and learning processes, helping identify patterns in AI misuse and effective engagement</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="experience-card d-flex flex-column align-items-center p-3 h-100">
-        <div class="experience-img mb-3">
-          <img src="assets/barnard.jpeg" alt="Barnard College" class="img-fluid rounded" style="max-width: 100px;">
-        </div>
-        <div class="experience-text">
-          <h5><strong>Barnard College</strong></h5>
-          <p><em>Research Assistant</em><br>Sep 2024 - May 2025</p>
-          <ul class="text-start">
-            <li>Conducted literature review identifying strategies for gender-inclusive web applications.</li>
-            <li>Collaborated on a VS Code extension enhancing inclusivity in account creation flows.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="experience-card d-flex flex-column align-items-center p-3 h-100">
-        <div class="experience-img mb-3">
-          <img src="assets/barnard.jpeg" alt="Social Media Coordinator" class="img-fluid rounded" style="max-width: 100px;">
-        </div>
-        <div class="experience-text">
-          <h5><strong>Barnard Store</strong></h5>
-          <p><em>Social Media Coordinator</em><br>September 2023 - May 2025</p>
-          <ul class="text-start">
-            <li> Increased engagement on Instagram by 20%</li>
-            <li>Posted consistently on Instagram and initiated social media campaigns that increase visibility of the Barnard Store Instagram by 39%</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-4 mb-4">
-      <div class="experience-card d-flex flex-column align-items-center p-3 h-100">
-        <div class="experience-img mb-3">
-          <img src="assets/barnard.jpeg" alt="Global Ambassador" class="img-fluid rounded" style="max-width: 100px;">
-        </div>
-        <div class="experience-text">
-          <h5><strong>Access Barnard</strong></h5>
-          <p><em>Global Ambassador</em><br>July 2023 - May 2025</p>
-          <ul class="text-start">
-            <li>Mentoring and international/FLI students and led workshops on college transition</li>
-            <li>Support Access Barnard staff in Fall and Summer orientation programing</li>
-            <li>Organized senior sendoff; end of semester event for international student seniors</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Axle Informatics -->
-    <div class="col-md-4 mb-4">
-      <div class="experience-card d-flex flex-column align-items-center p-3 h-100">
-        <div class="experience-img mb-3">
-          <img src="assets/Axle.png" alt="Axle Informatics" class="img-fluid rounded" style="max-width: 100px;">
-        </div>
-        <div class="experience-text">
-          <h5><strong>Axle Informatics</strong></h5>
-          <p><em>AI Fellow</em><br>Aug 2024 - Dec 2024</p>
-          <ul class="text-start">
-            <li>Developed a large language model to streamline CWL pipeline generation, improving dataset quality by 10%.</li>
-            <li>Coordinated bi-weekly team meetings ensuring efficient task distribution.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-
-    <!-- Cybastion -->
-    <div class="col-md-4 mb-4">
-      <div class="experience-card d-flex flex-column align-items-center p-3 h-100">
-        <div class="experience-img mb-3">
-          <img src="assets/cybastion.png" alt="Cybastion" class="img-fluid rounded" style="max-width: 100px;">
-        </div>
-        <div class="experience-text">
-          <h5><strong>Cybastion</strong></h5>
-          <p><em>Cybersecurity Intern</em><br>Jun 2024 - Jul 2024</p>
-          <ul class="text-start">
-            <li>Led configuration protocols for a Security Operations Center ensuring full system functionality.</li>
-            <li>Created automated data visualization tracking 10 projects over 30 weeks.</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Education Section -->
-<section id="education" class="container">
-  <div>
-    <h2 class="section-title">Education</h2>
-    <div class="row justify-content-center">
-      <div class="col-md-5">
-        <div class="education-card">
-          <h5><strong>Columbia University</strong> – Master of Science in Computer Science</h5>
-          <p>Expected May 2026</p>
-          <p>Relevant coursework: User Interface Design, Innovation and Design Lab, Operating Systems, Intro to Databases, Engineering Software as a Service</p>
-        </div>
-      </div>
-      <div class="col-md-5">
-        <div class="education-card">
-          <h5><strong>Barnard College, Columbia University</strong> – Bachelor of Arts in Computer Science & Women's Gender and Sexuality Studies</h5>
-          <p>May 2025</p>
-          <p>Relevant coursework: Artificial Intelligence, Machine Learning, Natural Language Processing, Deep Learning in Computer Vision</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Projects Section -->
-<section id="projects" class="container py-5">
-  <div class="row">
-    <div class="col-12">
-      <h2 class="section-title">AI Projects</h2>
-    </div>
-  </div>
-  <div class="row justify-content-center">
-    <!-- Project 1 -->
-    <div class="col-md-5 mb-4">
-      <div class="experience-card p-4 shadow-sm rounded">
-        <div class="experience-text text-start">
-          <h5><strong>Trendy Fashion AI</strong></h5>
-          <p><em>AI-driven fashion trend predictor</em></p>
-          <ul>
-            <li>Developed an AI-based solution designed to predict whether a piece of clothing will be trendy or not</li>
-            <li>Predicted emerging style trends with 99.37% accuracy within testing and training dataset</li>
-          </ul>
-          <a href="https://github.com/LeanaNgompe/Fashion-Forcast" target="_blank" class="btn btn-outline-dark mt-2">
-            View Repository
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Project 2 -->
-    <div class="col-md-5 mb-4">
-      <div class="experience-card p-4 shadow-sm rounded">
-        <div class="experience-text text-start">
-          <h5><strong>Dermatology AI</strong></h5>
-          <p><em>Skin condition classification model</em></p>
-          <ul>
-            <li>Constructed an automated data generator to enhance skin types and conditions distribution in dataset by 15%</li>
-            <li>Optimized ResNet18 model achieving validation accuracy of 73.08% and test accuracy of 73.96%</li>
-          </ul>
-          <a href="https://github.com/kmarti28/VIR_AJL_Team-Hyaluronic-Acid" target="_blank" class="btn btn-outline-dark mt-2">
-            View Repository
-          </a>
-        </div>
-      </div>
-    </div>
-    <!-- Project 3 -->
-    <div class="col-md-5 mb-4">
-      <div class="experience-card p-4 shadow-sm rounded">
-        <div class="experience-text text-start">
-          <h5><strong>Fashion Forecast</strong></h5>
-          <p><em>Fashion outfit compatibility and recommendation system</em></p>
-          <ul>
-            <li>Created dissimilar set by randomly swapping items in existing data, resulting in 10,000 samples</li>
-            <li>Fine-tuned Hugging Face CLIP model achieving training AUC-ROC score of 0.754</li>
-          </ul>
-          <a href="https://github.com/YueXu-2001/DLCV-2025" target="_blank" class="btn btn-outline-dark mt-2">
-            View Repository
-          </a>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-5 mb-4">
-      <div class="experience-card p-4 shadow-sm rounded">
-        <div class="experience-text text-start">
-          <h5><strong>Digital Sexual Violence, Revisited</strong></h5>
-          <p><em>A F/ISTs Approach to Deepfake Technology</em></p>
-          <ul>
-            <li>A thesis exploring the real ethical concerns of deepfake technology on women in digital spaces</li>
-            <li>What happens when you exist in a space that is predicated on exposing people and creating an environment where you unintentionally (or intentionally) expose yourself</li>
-            <li>A call for more critical and socially aware computer and software engineers to prevent the missuse of technology</li>
-          </ul>
-          <a href="assets/Thesis_ Digital Sexual Violence, Revisited_ A F_ISTs Approach to Deepfake Technology.pdf" target="_blank" class="btn btn-outline-dark mt-2">
-            Read Thesis
-          </a>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-12 text-center mt-3">
-      <a href="https://github.com/LeanaNgompe" target="_blank" class="btn btn-outline-dark">
-        More Projects
-      </a>
-    </div>
-  </div>
-</section>
-<!-- Skills Section -->
-<section id="skills" class="container py-5 text-center">
-  <h2 class="section-title mb-5">Skills</h2>
-  <div class="row justify-content-center">
-    
-    <!-- Languages -->
-    <div class="col-md-5 mb-4">
-      <div class="skills-card p-4 shadow-sm rounded">
-        <h5><strong>Languages</strong></h5>
-        <div class="skill-tags">
-          <span>Python</span>
-          <span>Javaquery</span>
-          <span>Java</span>
-          <span>C/C++</span>
-          <span>HTML/CSS</span>
-          <span>Ruby on Rails</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Frameworks & Libraries -->
-    <div class="col-md-5 mb-4">
-      <div class="skills-card p-4 shadow-sm rounded">
-        <h5><strong>Frameworks & Libraries</strong></h5>
-        <div class="skill-tags">
-          <span>TensorFlow</span>
-          <span>Keras</span>
-          <span>PyTorch</span>
-          <span>Bootstrap</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Tools -->
-    <div class="col-md-5 mb-4">
-      <div class="skills-card p-4 shadow-sm rounded">
-        <h5><strong>Tools & Platforms</strong></h5>
-        <div class="skill-tags">
-          <span>Git</span>
-          <span>GitHub</span>
-          <span>VS Code</span>
-          <span>Jupyter</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Interests -->
-    <div class="col-md-5 mb-4">
-      <div class="skills-card p-4 shadow-sm rounded">
-        <h5><strong>Areas of Interest</strong></h5>
-        <div class="skill-tags">
-          <span>AI Ethics</span>
-          <span>Inclusive Tech</span>
-          <span>Machine Learning Models</span>
-          <span>Natural Language Processing</span>
-          <span>Web Accessibility</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-<!-- Contact Section -->
-<section id="contact" class="container">
-  <div>
-    <h2 class="section-title">Contact</h2>
-    <p class="text-center">Let’s work together! Reach out via email or connect through my professional networks below.</p>
-    <div class="d-flex justify-content-center mt-3">
-      <a href="mailto:jf3433@columbia.edu" class="btn btn-dark me-2">Email Me</a>
-      <a href="assets/jlfn ml resume.docx.pdf" class="btn btn-outline-dark" download>Download Resume</a>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer>
-  <p>
-    © 2025 Jenny Leana Fotso Ngompe | 
-    <a href="https://github.com/LeanaNgompe" target="_blank">GitHub</a> | 
-    <a href="https://www.linkedin.com/in/jennyleanafotsongompe/" target="_blank">LinkedIn</a> | 
-    <a href="mailto:jf3433@columbia.edu">Email</a>
+  <h2 class="section-title">About Me</h2>
+  <!-- DRAFT ONLY: rewrite in your own voice. A one-sentence hook on what got you into this research would help. -->
+  <p class="text-center mx-auto" style="max-width: 800px;">
+    I study how social platforms and generative AI amplify existing power asymmetries, using mixed-methods research grounded in qualitative and discourse analysis, and I'm building toward computational methods. I hold an M.S. in Computer Science from Columbia University and a B.A. in Computer Science and Women's, Gender, and Sexuality Studies from Barnard College, and I'm applying to PhD programs.
   </p>
+</section>
+
+<section id="research" class="container">
+  <h2 class="section-title">Research</h2>
+  <div class="row justify-content-center g-4">
+    <!-- Confirm the wording of this entry with Gianna Williams before publishing -->
+    <div class="col-md-6">
+      <div class="experience-card">
+        <h5><strong>Sentiment and Black joy on TikTok</strong></h5>
+        <p class="meta"><em>Research Assistant, Ato Lab (PI: Gianna Williams), Northeastern University</em><br>Sep 2026 – Present</p>
+        <ul>
+          <li>Fine-tuned a SetFit model for sentiment classification of TikTok comment sections with a positive/negative schema.</li>
+          <li>Developing a method to represent sentiment as a bipartite graph between videos and comments to analyze whether expressions of Black joy garner negative sentiment.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="experience-card">
+        <h5><strong>TikTok's algorithm and incel content</strong></h5>
+        <p class="meta"><em>Course research project, Human-Computer Interaction (Instructor: Prof. Brian Smith), Columbia University</em><br>Jan 2026 – May 2026</p>
+        <ul>
+          <li>Conceived and led a mixed-methods study of how TikTok's personalization algorithm exposes vulnerable young users to incel content.</li>
+          <li>Ran 15 semi-structured interviews (ages 18–22), built personas from the findings, and carried out 8 scroll studies that simulated user trajectories without exposing real vulnerable users to harm.</li>
+          <li>Analyzed interviews and researcher journals with Braun &amp; Clarke's reflexive thematic analysis. Findings: implicit gateway content, ideology spreading beyond individual videos, and unrealistic disengagement expectations placed on vulnerable users.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="experience-card">
+        <h5><strong>Digital Sexual Violence, Revisited</strong></h5>
+        <p class="meta"><em>Honors thesis (Advisor: Dr. Sandra Moyano Ariza), Barnard College; Graduated with Distinction</em><br>Sep 2024 – May 2025</p>
+        <ul>
+          <li>Critical Technocultural Discourse Analysis of the Megan Thee Stallion deepfake case, pairing analysis of how the explicit content was computationally produced with a feminist account of why it circulated in misogynistic spaces.</li>
+          <li>Manually collected and analyzed 19 X posts to examine user sentiment; argued that entitlement, anonymity, and existing cycles of violence are amplified by generative AI.</li>
+        </ul>
+        <a href="assets/Thesis_%20Digital%20Sexual%20Violence,%20Revisited_%20A%20F_ISTs%20Approach%20to%20Deepfake%20Technology.pdf" target="_blank" rel="noopener" class="btn btn-outline-dark btn-sm mt-3">Read thesis (PDF)</a>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="experience-card">
+        <h5><strong>Gender-inclusive web development</strong></h5>
+        <p class="meta"><em>Independent study (Advisor: Prof. Lucy Simko), Barnard College</em><br>Sep 2024 – May 2025</p>
+        <ul>
+          <li>Conducted the gender-inclusive UI track of a literature review; identified transparency and variety as core guidelines for asking users about gender.</li>
+          <li>Led development of an interactive toolkit website that turns the guidelines into a decision flowchart for developers.</li>
+          <li>Collaborated on a companion VS Code extension that flags gender-related terms in HTML and offers hover guidance and inclusive-prompt snippets.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="container">
+  <h2 class="section-title">Experience</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-4">
+      <div class="experience-card">
+        <h5><strong>Barnard College</strong></h5>
+        <p class="meta"><em>Usable Privacy and Security Teaching Assistant</em><br>Aug 2025 – Dec 2025</p>
+        <ul>
+          <li>Supported a research-driven course on ethical and inclusive technology design.</li>
+          <li>Created and evaluated weekly assessments that distinguished superficial from substantive AI-assisted responses.</li>
+          <li>Assessed student reasoning, identifying patterns in AI misuse and effective engagement.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="experience-card">
+        <h5><strong>Columbia University</strong></h5>
+        <p class="meta"><em>AIx Research Intern</em><br>Jan 2026 – May 2026</p>
+        <ul>
+          <li>Surveyed benchmarks for evaluating LLMs and agents and presented findings to the research group.</li>
+          <li>Supported a learning module on whether LLMs should define terms in statutes; evaluated TransformerLens and identified an existing interpretability tool that met the module's needs.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="experience-card">
+        <h5><strong>Axle Informatics</strong></h5>
+        <p class="meta"><em>AI Fellow</em><br>Aug 2024 – Dec 2024</p>
+        <ul>
+          <li>Built an LLM-powered system to generate and standardize 785 CWL workflows for bioinformatics pipelines.</li>
+          <li>Scaled the dataset from 4,710 to 9,420 samples using FLAN-T5, improving ROUGE-1 by 10%.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="experience-card">
+        <h5><strong>Cybastion</strong></h5>
+        <p class="meta"><em>Cybersecurity Intern</em><br>Jun 2024 – Jul 2024</p>
+        <ul>
+          <li>Automated configuration of a passive SOC infrastructure.</li>
+          <li>Built resource-tracking automation and dashboards across 10 initiatives.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="experience-card">
+        <h5><strong>Access Barnard</strong></h5>
+        <p class="meta"><em>Global Ambassador</em><br>Jul 2023 – May 2025</p>
+        <ul>
+          <li>Mentored international and first-generation, low-income students and led workshops on college transition.</li>
+          <li>Supported Fall and Summer orientation programming and organized a senior send-off for international students.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="experience-card">
+        <h5><strong>Barnard Store</strong></h5>
+        <p class="meta"><em>Social Media Coordinator</em><br>Sep 2023 – May 2025</p>
+        <ul>
+          <li>Ran social media campaigns that increased Instagram engagement by 20% and visibility by 39%.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="education" class="container">
+  <h2 class="section-title">Education</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-5">
+      <div class="education-card">
+        <h5><strong>Columbia University</strong>: M.S. in Computer Science</h5>
+        <p class="meta">May 2026</p>
+        <p>Coursework: Responsible &amp; Ethical AI, User Interface Design, Databases, Operating Systems, Software Engineering as a Service</p>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="education-card">
+        <h5><strong>Barnard College, Columbia University</strong>: B.A. in Computer Science and Women's, Gender, and Sexuality Studies</h5>
+        <p class="meta">May 2025 · Graduated with Distinction</p>
+        <p>Coursework: Artificial Intelligence, Machine Learning, Natural Language Processing, Deep Learning in Computer Vision</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills" class="container text-center">
+  <h2 class="section-title">Skills &amp; Selected Project</h2>
+  <div class="row justify-content-center g-4">
+    <div class="col-md-5">
+      <div class="skills-card h-100">
+        <h5><strong>Research methods</strong></h5>
+        <div class="skill-tags">
+          <span>Mixed-methods research</span><span>Semi-structured interviews</span><span>Reflexive thematic analysis</span><span>Critical technocultural discourse analysis</span><span>Persona-based algorithm audits</span><span>Systematic literature review</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-5">
+      <div class="skills-card h-100">
+        <h5><strong>Technical</strong></h5>
+        <div class="skill-tags">
+          <span>Python</span><span>Java</span><span>C/C++</span><span>SQL</span><span>JavaScript</span><span>PyTorch</span><span>HuggingFace</span><span>TransformerLens</span><span>Git</span>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-10">
+      <div class="skills-card text-start">
+        <h5><strong>Skin Condition Classification</strong></h5>
+        <p class="mb-2">Investigated how dermatology AI tools can be made inclusive of all skin complexions. Built an automated data generator that increased skin-tone diversity in the dataset by 15% and contributed to optimizing a ResNet18 classifier.</p>
+        <a href="https://github.com/kmarti28/VIR_AJL_Team-Hyaluronic-Acid" target="_blank" rel="noopener" class="btn btn-outline-dark btn-sm">View repository</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="container">
+  <h2 class="section-title">Contact</h2>
+  <p class="text-center">I'm applying to PhD programs and glad to talk with researchers working on related questions.<br>
+    <a href="mailto:jf3433@columbia.edu">jf3433@columbia.edu</a></p>
+  <div class="d-flex justify-content-center mt-3">
+    <a href="mailto:jf3433@columbia.edu" class="btn btn-dark me-2">Email me</a>
+    <a href="assets/FotsoNgompe_CV.pdf" class="btn btn-outline-dark">Download CV</a>
+  </div>
+</section>
+
+<footer>
+  <p class="mb-0">© 2026 Jenny Leana Fotso Ngompe |
+    <a href="https://github.com/LeanaNgompe" target="_blank" rel="noopener">GitHub</a> |
+    <a href="https://www.linkedin.com/in/jennyleanafotsongompe/" target="_blank" rel="noopener">LinkedIn</a> |
+    <a href="mailto:jf3433@columbia.edu">Email</a></p>
 </footer>
 
 <script>
-$(document).ready(function(){
-    const text = "Aspiring AI & Software Engineer | Passionate about inclusive technology and ethical AI.";
-    const typingSpeed = 50; // ms per character
+$(document).ready(function () {
+  const text = "Social computing · Algorithmic auditing · Technology-facilitated harm · Feminist HCI";
+  const $typed = $("#typed-text");
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    $typed.text(text);
+  } else {
     let i = 0;
-    const $typed = $("#typed-text");
-
-    function typeWriter() {
-        if (i < text.length) {
-            $typed.append(text.charAt(i));
-            i++;
-            setTimeout(typeWriter, typingSpeed);
-        }
+    (function type() {
+      if (i < text.length) { $typed.append(text.charAt(i++)); setTimeout(type, 40); }
+    })();
+  }
+  $('a.nav-link').on('click', function (e) {
+    if (this.hash !== '') {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: $(this.hash).offset().top - 70 }, 600);
     }
-    typeWriter();
-
-    // Smooth scroll for navbar
-    $('a.nav-link').on('click', function(event) {
-        if (this.hash !== '') {
-            event.preventDefault();
-            var hash = this.hash;
-            $('html, body').animate({ scrollTop: $(hash).offset().top - 70 }, 800);
-        }
-    });
+  });
 });
 </script>
-
 </body>
 </html>
